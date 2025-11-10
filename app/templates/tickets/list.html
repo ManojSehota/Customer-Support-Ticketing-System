@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}My Tickets{% endblock %}
+{% block content %}
+<h2 class="mb-4">Your Tickets</h2>
+
+<a href="{{ url_for('tickets.create_ticket') }}" class="btn btn-primary mb-3">+ Create Ticket</a>
+
+{% if tickets %}
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Subject</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ ticket.subject }}</td>
+      <td>{{ ticket.priority }}</td>
+      <td>{{ ticket.status }}</td>
+      <td>
+        <a href="{{ url_for('tickets.view_ticket', ticket_id=ticket.id) }}" class="btn btn-sm btn-info">View</a>
+        <a href="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}" class="btn btn-sm btn-warning">Edit</a>
+        <form action="{{ url_for('tickets.delete_ticket', ticket_id=ticket.id) }}" method="POST" style="display:inline;">
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No tickets yet. Create one!</p>
+{% endif %}
+{% endblock %}

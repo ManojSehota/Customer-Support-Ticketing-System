@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Update Ticket{% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width:600px;">
+  <div class="card-body">
+    <h4 class="card-title text-center">Update Ticket</h4>
+    <form method="POST" action="{{ url_for('tickets.update_ticket', ticket_id=ticket.id) }}">
+      <div class="mb-3">
+        <label>Subject</label>
+        <input type="text" name="subject" value="{{ ticket.subject }}" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label>Description</label>
+        <textarea name="description" class="form-control" rows="4" required>{{ ticket.description }}</textarea>
+      </div>
+
+      <div class="mb-3">
+        <label>Priority</label>
+        <select name="priority" class="form-select">
+          <option value="Low" {% if ticket.priority == 'Low' %}selected{% endif %}>Low</option>
+          <option value="Medium" {% if ticket.priority == 'Medium' %}selected{% endif %}>Medium</option>
+          <option value="High" {% if ticket.priority == 'High' %}selected{% endif %}>High</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success w-100">Save Changes</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

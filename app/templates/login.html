@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card mx-auto" style="max-width:400px;">
+  <div class="card-body">
+    <h4 class="card-title text-center">Login</h4>
+
+    <!-- Important: Add method="POST" and action -->
+    <form method="POST" action="{{ url_for('auth.login') }}">
+      <div class="form-group mb-3">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <p class="text-center mt-3">
+      Don't have an account? <a href="{{ url_for('auth.register') }}">Register</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

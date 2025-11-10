@@ -1,0 +1,61 @@
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+textarea {
+  resize: none;
+}
+
+.ticket-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.ticket-table th, .ticket-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.btn-small {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-small:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.message-box {
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.message-box.agent {
+  background-color: #e8f0fe;
+}
+
+.message-box.customer {
+  background-color: #d4edda;
+}
+

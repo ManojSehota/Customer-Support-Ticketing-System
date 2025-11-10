@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Create Ticket{% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width:600px;">
+  <div class="card-body">
+    <h4 class="card-title text-center">Create New Ticket</h4>
+
+    <form method="POST" action="{{ url_for('tickets.create_ticket') }}">
+      <div class="mb-3">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter ticket subject" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" class="form-control" placeholder="Describe the issue" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="priority">Priority</label>
+        <select id="priority" name="priority" class="form-select">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="status">Status</label>
+        <select id="status" name="status" class="form-select">
+          <option value="Open">Open</option>
+          <option value="Close">Close</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary w-100">Create Ticket</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
